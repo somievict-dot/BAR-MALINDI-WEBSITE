@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bar Bar Restaurant & Pizzeria | Online Store</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <header>
+        <div class="logo">Bar Bar Malindi</div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#menu">Order Online</a>
+            <a href="#reserve">Book Table</a>
+            <a href="#contact">Contact</a>
+            <button class="cart-btn" onclick="toggleCart()">🛒 Cart (<span id="cart-count">0</span>)</button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <h1>Flavor Meets Fun in Malindi</h1>
+        <p>Order authentic wood-fired pizza, cold cuts, and fresh coastal seafood online for delivery or take-away!</p>
+        <a href="#menu" class="btn">Order Food Now</a>
+    </section>
+
+    <!-- Menu Section with Add to Cart Buttons -->
+    <section id="menu">
+        <h2>Online Ordering Menu</h2>
+
+        <div class="menu-category">
+            <h3>Sandwiches & Baguettes</h3>
+            <p><span>Chicken Baguette</span> <strong>Ksh 1,650</strong> <button class="btn-sm" onclick="addToCart('Chicken Baguette', 1650)">+ Add</button></p>
+            <p><span>Bresaola Baguette</span> <strong>Ksh 1,650</strong> <button class="btn-sm" onclick="addToCart('Bresaola Baguette', 1650)">+ Add</button></p>
+            <p><span>Tuna Baguette</span> <strong>Ksh 1,800</strong> <button class="btn-sm" onclick="addToCart('Tuna Baguette', 1800)">+ Add</button></p>
+        </div>
+
+        <div class="menu-category">
+            <h3>Full Platter Cold Cuts</h3>
+            <p><span>Tagliere Misto Salumi Formaggi</span> <strong>Ksh 2,500</strong> <button class="btn-sm" onclick="addToCart('Full Platter Cold Cuts', 2500)">+ Add</button></p>
+            <p><span>Ham Platter</span> <strong>Ksh 1,700</strong> <button class="btn-sm" onclick="addToCart('Ham Platter', 1700)">+ Add</button></p>
+            <p><span>Cheese Platter</span> <strong>Ksh 1,700</strong> <button class="btn-sm" onclick="addToCart('Cheese Platter', 1700)">+ Add</button></p>
+        </div>
+
+        <div class="menu-category">
+            <h3>Soups & Snacks</h3>
+            <p><span>Seafood Soup</span> <strong>Ksh 1,300</strong> <button class="btn-sm" onclick="addToCart('Seafood Soup', 1300)">+ Add</button></p>
+            <p><span>Gorgonzola Samosa</span> <strong>Ksh 500</strong> <button class="btn-sm" onclick="addToCart('Gorgonzola Samosa', 500)">+ Add</button></p>
+            <p><span>Chicken Burger + Chips</span> <strong>Ksh 950</strong> <button class="btn-sm" onclick="addToCart('Chicken Burger + Chips', 950)">+ Add</button></p>
+        </div>
+    </section>
+
+    <!-- Cart / M-Pesa Modal -->
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="toggleCart()">&times;</span>
+            <h2>Your Order Summary</h2>
+            <div id="cart-items"></div>
+            <hr style="margin: 15px 0; border-color: #333;">
+            <p style="font-size: 1.2rem; font-weight: bold; color: #ffb703;">Total: Ksh <span id="cart-total">0</span></p>
+
+            <!-- M-Pesa Details Form -->
+            <div class="mpesa-checkout" style="margin-top: 20px; text-align: left;">
+                <label for="mpesa-phone" style="display:block; margin-bottom:5px;">M-Pesa Phone Number:</label>
+                <input type="tel" id="mpesa-phone" placeholder="e.g. 0712345678" style="width:100%; padding:10px; margin-bottom:15px; border-radius:5px; border:1px solid #444; background:#222; color:#fff;">
+                <button onclick="payWithMpesa()" class="btn" style="width: 100%; background: #25d366; color: #fff; border: none; font-size: 1rem; cursor: pointer;">
+                    Pay via M-Pesa STK Push
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Bar Bar Restaurant & Pizzeria Malindi. E-Commerce Platform.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
